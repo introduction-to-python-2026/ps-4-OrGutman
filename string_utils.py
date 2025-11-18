@@ -3,21 +3,15 @@ def split_before_each_uppercases(formula):
 
 
 def split_at_first_digit(formula):
-    list = []
-    letters = ""
-    numbers = ""
+    prefix = ""
+    index = 0
+    while index < len(formula):
+        char = formula[index]
+        if char.isdigit():
+            number = int(formula[index:])
+            return prefix, number
 
-    for i in formula:
-        is_letter = i.isdigit()
-        if not is_letter:
-            letters += i
-        else:
-            numbers += i
-    list.append(letters)
+        prefix += char
+        index += 1
 
-    if numbers != "":
-        list.append(int(numbers))
-    else:
-        list.append(1)
-
-    return list
+    return formula, 1
