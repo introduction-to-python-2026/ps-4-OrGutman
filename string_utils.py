@@ -1,5 +1,20 @@
 def split_before_each_uppercases(formula):
-    pass # Replace the `pass` with your code
+    index = 0
+    mylist = []
+    upper_index = 0
+
+    while index < len(formula):
+        char = formula[index]
+        if char.isupper():
+            if index != 0:
+                mylist.append(formula[upper_index:index])
+            upper_index = index
+            
+        index += 1
+        
+    mylist.append(formula[upper_index:index])
+
+    return mylist
 
 
 def split_at_first_digit(formula):
@@ -15,3 +30,4 @@ def split_at_first_digit(formula):
         index += 1
 
     return formula, 1
+
